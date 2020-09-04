@@ -2,4 +2,4 @@
 var timeDisplay = $("#currentDay");
 var theDay = moment();
 
-timeDisplay.textContent = theDay.format("dddd, MMMM Do YYYY, h:mm:ss a");
+timeDisplay.text(theDay.format("dddd, hA"));

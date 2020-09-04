@@ -4,14 +4,9 @@ var theDay = moment();
 
 timeDisplay.text(theDay.format("dddd, hA"));
 
+var tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
 
-var createItem = function() {
-    var itemE1 = $("textarea").addClass("description");
-    var itemEntry = S("<input>")
-        .addClass("description")
-        .text(itemE1)
-}
 
 var taskNotification = function() {
     var currentTime = moment().format("H")
@@ -28,10 +23,28 @@ var taskNotification = function() {
         }
     })
 
-
-
-
-
-
 }
 taskNotification();
+
+
+// var saveTasks = function() {
+//     localStorage.setItem("tasks", JSON.stringify(tasks));
+// };
+
+// function keepTasks(tasks) {
+//     for (var i = 0; i < tasks.length; i++) {
+//         var taskKeep = $("textarea");
+//         taskKeep.text(tasks[i]);
+//     }
+// }
+
+
+// $("saveBtn").on('click', function(event) {
+//     var taskToDo = $("description")
+//         .val()
+//         .trim();
+//     tasks.push(taskToDo)
+
+//     localStorage.setItem("tasks", JSON.stringify(tasks));
+//     saveTasks(taskToDo);
+// })

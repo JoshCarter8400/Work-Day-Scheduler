@@ -2,10 +2,12 @@
 var timeDisplay = $("#currentDay");
 var theDay = moment();
 
-timeDisplay.text(theDay.format("dddd, hA"));
+timeDisplay.text(theDay.format("dddd, MMMM Do YYYY"));
 
 
-$("textarea").blur()
+var tasks = JSON.parse(localStorage.getItem("tasks")) || {}
+
+
 
 
 
@@ -29,25 +31,34 @@ taskNotification();
 
 
 
+var saveRefresh = function() {
 
-$(document).ready(function() {
     $(".saveBtn").on('click', function() {
         var taskToDo = $(this).siblings(".description").val();
         var hourSave = $(this).parent().attr("id")
 
-        localStorage.setItem(hourSave, taskToDo);
+
+        tasks[hourSave] = taskToDo
+        localStorage.setItem("tasks", JSON.stringify(tasks))
+
+
     })
-    $("#hour8 .description").val(localStorage.getItem("hour8"));
-    $("#hour9 .description").val(localStorage.getItem("hour9"));
-    $("#hour10 .description").val(localStorage.getItem("hour10"));
-    $("#hour11 .description").val(localStorage.getItem("hour11"));
-    $("#hour12 .description").val(localStorage.getItem("hour12"));
-    $("#hour13 .description").val(localStorage.getItem("hour13"));
-    $("#hour14 .description").val(localStorage.getItem("hour14"));
-    $("#hour15 .description").val(localStorage.getItem("hour15"));
-    $("#hour16 .description").val(localStorage.getItem("hour16"));
-    $("#hour17 .description").val(localStorage.getItem("hour17"));
-    $("#hour18 .description").val(localStorage.getItem("hour18"));
 
 
-})
+
+    $("#hour8 .description").val(tasks["hour8"])
+    $("#hour9 .description").val(tasks["hour9"])
+    $("#hour10 .description").val(tasks["hour10"])
+    $("#hour11 .description").val(tasks["hour11"])
+    $("#hour12 .description").val(tasks["hour12"])
+    $("#hour13 .description").val(tasks["hour13"])
+    $("#hour14 .description").val(tasks["hour14"])
+    $("#hour15 .description").val(tasks["hour15"])
+    $("#hour16 .description").val(tasks["hour16"])
+    $("#hour17 .description").val(tasks["hour17"])
+    $("#hour18 .description").val(tasks["hour18"])
+
+
+
+}
+saveRefresh();

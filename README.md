@@ -8,4 +8,4 @@ This project is a planner to be used from the hours of 8am-6pm. You are able to 
 4. Moment.js
 5. JQuery
 
-### Application can be deployed here: 
+### Application can be deployed here: https://joshcarter8400.github.io/Work-Day-Scheduler/

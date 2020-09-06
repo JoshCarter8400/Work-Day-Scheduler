@@ -9,3 +9,5 @@ This project is a planner to be used from the hours of 8am-6pm. You are able to 
 5. JQuery
 
 ### Application can be deployed here: https://joshcarter8400.github.io/Work-Day-Scheduler/
+
+<img src="./assets/images/work-day-scheduler.png">

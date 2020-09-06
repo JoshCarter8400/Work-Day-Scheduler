@@ -4,13 +4,13 @@ var theDay = moment();
 
 timeDisplay.text(theDay.format("dddd, MMMM Do YYYY"));
 
-
+// var for get items into local storage
 var tasks = JSON.parse(localStorage.getItem("tasks")) || {}
 
 
 
 
-
+// function to set background colors based on time 
 var taskNotification = function() {
     var currentTime = moment().format("H")
 
@@ -30,35 +30,24 @@ var taskNotification = function() {
 taskNotification();
 
 
-
+// function to save tasks after refreshing
 var saveRefresh = function() {
 
+    // creating click event for save button 
     $(".saveBtn").on('click', function() {
-        var taskToDo = $(this).siblings(".description").val();
-        var hourSave = $(this).parent().attr("id")
+            var taskToDo = $(this).siblings(".description").val();
+            var hourSave = $(this).parent().attr("id")
 
 
-        tasks[hourSave] = taskToDo
-        localStorage.setItem("tasks", JSON.stringify(tasks))
+            tasks[hourSave] = taskToDo
+            localStorage.setItem("tasks", JSON.stringify(tasks))
 
 
-    })
-
-
-
-    $("#hour8 .description").val(tasks["hour8"])
-    $("#hour9 .description").val(tasks["hour9"])
-    $("#hour10 .description").val(tasks["hour10"])
-    $("#hour11 .description").val(tasks["hour11"])
-    $("#hour12 .description").val(tasks["hour12"])
-    $("#hour13 .description").val(tasks["hour13"])
-    $("#hour14 .description").val(tasks["hour14"])
-    $("#hour15 .description").val(tasks["hour15"])
-    $("#hour16 .description").val(tasks["hour16"])
-    $("#hour17 .description").val(tasks["hour17"])
-    $("#hour18 .description").val(tasks["hour18"])
-
-
+        })
+        // iterating through tasks to save into local storage
+    for (var i = 8; i < 18; i++) {
+        $("#hour" + i.toString() + " .description").val(tasks["hour" + i.toString()])
+    }
 
 }
 saveRefresh();
